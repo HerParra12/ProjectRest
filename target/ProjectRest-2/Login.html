@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Res.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<form id="loginform">
+    <div class="form">
+        <h1>Ingreso</h1>
+        <div class="grupo">
+            username: <input type="text" name="username" id="username" required><span class="barra"></span>
+        </div>
+        <div class="grupo">
+            password: <input type="password" name="password" id="password" required><span class="barra"></span>
+        </div>
+        <input type="submit" value="Ingresar" class="button two">
+    </div>
+</form>
+<script>
+    let form = document.getElementById("loginform");
+    form.addEventListener("submit",function(e){
+        e.preventDefault();
+        let json = {
+            "name": document.getElementById("username").value,
+            "password": document.getElementById("password").value,
+        };
+
+        const header = new Headers();
+        header.append("Content-Type", "application/json");
+        header.append("Access-Control-Allow-Origin", "*");
+
+        fetch("./api/users/login", {method: "POST",
+            body: JSON.stringify(json),
+            headers: header
+        }).then(response => 
+            response.json())
+        .then(person => {
+            localStorage.setItem("name",person["name"]);
+            localStorage.setItem("email", person["email"]);
+            localStorage.setItem("role", person["role"]);
+            localStorage.setItem("fcoins", person["fcoins"]);
+            if(person["role"] == "Artist") {
+                window.location.href = "./index2.html";
+            }else if (person["role"] == "Shopper"){
+                window.location.href = "./index3.html";
+            }else if(person["name"] == null) {
+                location.reload();
+           }
+        });
+    });
+</script>
+</body>
+</html>

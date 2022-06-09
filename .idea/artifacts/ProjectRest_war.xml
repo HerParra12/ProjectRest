@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="ProjectRest-1.0-SNAPSHOT.war">
+    <root id="archive" name="ProjectRest-2.war">
       <element id="artifact" artifact-name="ProjectRest:war exploded" />
     </root>
   </artifact>

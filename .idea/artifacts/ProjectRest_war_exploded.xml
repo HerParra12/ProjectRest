@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="ProjectRest:war exploded">
-    <output-path>$PROJECT_DIR$/target/ProjectRest-1.0-SNAPSHOT.war</output-path>
+    <output-path>$PROJECT_DIR$/target/ProjectRest-2</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -13,9 +13,13 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ProjectRest" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.3.5" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/ProjectRest-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/ProjectRest-2/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="ProjectRest/web/Web" />
     </root>
